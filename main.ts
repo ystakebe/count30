@@ -12,6 +12,7 @@ function count_up2 () {
 }
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     reset_game()
+    basic.clearScreen()
 })
 function sidechange () {
     basic.clearScreen()
@@ -48,6 +49,12 @@ function showcount () {
         }
     }
 }
+input.onButtonPressed(Button.AB, function () {
+    basic.clearScreen()
+    basic.showIcon(IconNames.Heart)
+    basic.clearScreen()
+    showcount()
+})
 input.onButtonPressed(Button.B, function () {
     if (side < 0) {
         count_up2()
@@ -55,12 +62,17 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    sidechange()
+    if (count == 0) {
+        basic.clearScreen()
+        basic.showIcon(IconNames.No)
+        basic.clearScreen()
+    } else {
+        sidechange()
+    }
     showcount()
 })
 function reset_game () {
     count_up = 0
-    side = randint(0, 1)
     if (Math.randomBoolean()) {
         side = 1
         basic.showArrow(ArrowNames.West)
