@@ -4,6 +4,7 @@ function count_up2 () {
         count_up += 1
         if (count_up == 20) {
             finishgame()
+            reset_game()
         }
         if (count == count_max) {
             sidechange()
@@ -12,7 +13,6 @@ function count_up2 () {
 }
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     reset_game()
-    basic.clearScreen()
 })
 function sidechange () {
     basic.clearScreen()
@@ -73,6 +73,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 })
 function reset_game () {
     count_up = 0
+    count = 0
     if (Math.randomBoolean()) {
         side = 1
         basic.showArrow(ArrowNames.West)
@@ -80,6 +81,7 @@ function reset_game () {
         side = -1
         basic.showArrow(ArrowNames.East)
     }
+    basic.clearScreen()
 }
 function finishgame () {
     basic.clearScreen()
@@ -98,4 +100,3 @@ let count = 0
 let count_max = 0
 count_max = 3
 reset_game()
-basic.clearScreen()
