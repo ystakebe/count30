@@ -44,8 +44,8 @@ function showcount () {
         }
     }
     if (led_y > 0) {
-        for (let カウンター = 0; カウンター <= led_y - 1; カウンター++) {
-            led.plot(led_x, カウンター)
+        for (let カウンター2 = 0; カウンター2 <= led_y - 1; カウンター2++) {
+            led.plot(led_x, カウンター2)
         }
     }
 }
