@@ -12,6 +12,9 @@ function count_up2 () {
     }
 }
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    basic.clearScreen()
+    basic.showIcon(IconNames.Chessboard)
+    basic.clearScreen()
     reset_game()
 })
 function sidechange () {
